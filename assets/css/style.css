@@ -15,6 +15,15 @@ header {
 	width:100%;
 }
 
+/* Sets styling for the scoreboard button */
+.scoreboard-button {
+    border: 1px solid #ffffff;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+	height: fit-content;
+}
+
 /* Sets styling for main section */
 main {
 	display: flex;
@@ -47,11 +56,11 @@ main {
 }
 
 /* Sets styling for the start button */
-#start-button,
+.start-button,
 .answer-button button,
-#submit-button,
-#return-button,
-#reset-button {
+.submit-button,
+.return-button,
+.reset-button {
     border: 2px solid #000000;
     background-color: #ffffff;
     color: #000000;
@@ -59,11 +68,11 @@ main {
 }
 
 /* Sets hover effect for buttons */
-#start-button:hover,
-#scoreboard-button:hover,
-#submit-button:hover,
-#return-button:hover,
-#reset-button:hover {
+.start-button:hover,
+.scoreboard-button:hover,
+.submit-button:hover,
+.return-button:hover,
+.reset-button:hover {
     cursor: grab;
 	background-color:darkslateblue;
 	color: #ffffff;
@@ -75,24 +84,10 @@ main {
 	color: #ffffff;
 }
 
-/* Sets styling for footer */
-footer {
-	background-color: #000000;
-	color: #ffffff;
-	display: flex;
-	justify-content: center;
-    width: 100%;
-    padding: 20px;
-}
-
-/* Sets styling for the scoreboard button */
-#scoreboard-button {
-    border: 2px solid #ffffff;
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
-}
-
 section {
 	margin: 2%;
+}
+
+.hide {
+	display: none;
 }
