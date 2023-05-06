@@ -1,6 +1,4 @@
 var startBtn = document.getElementById("#start-button");
-var timerCount = document.getElementById("#timer-count");
-var scoreCount = document.getElementById("#score-count");
 
 
 
