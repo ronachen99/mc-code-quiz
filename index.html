@@ -11,42 +11,44 @@
 
 <body>
     <header>
-        <div>Time: <span class="timer-count">50</span></div>
+        <div>Time: <span id="timer-count">50</span></div>
         <h1>Code Quiz</h1>
-        <div>Score: <span class="score-count">0</span></div>
+        <div>Score: <span id="score-count">0</span></div>
     </header>
 
     <main>
         <section>
-            <button class="start-button">Start</button>
+            <button id="start-button">Start</button>
         </section>
 
         <section>
             <div class="quiz" data-state="hidden">
                 <h2 id="question"></h2>
-                <button class="answer-button" id=""></button>
-                <button class="answer-button" id=""></button>
-                <button class="answer-button" id=""></button>
-                <button class="answer-button" id=""></button>
+                <button class="answer-button" id="a"></button>
+                <button class="answer-button" id="b"></button>
+                <button class="answer-button" id="c"></button>
+                <button class="answer-button" id="d"></button>
             </div>
         </section>
 
         <section>
-            <div class="form">
+            <div class="form" data-state="hidden">
                 <h3>Great Job! Your score is <span class="score-count">0</span></h3>
                 <div class="input">
                     <label for="first-name">Enter Your Name: </label>
                     <input type="text" name="first-name" id="first-name"/>
-                <button class="submit-button">Submit</button>         
+                <button id="submit-button">Submit</button>         
             </div>
         </section>
 
         <section>
-            <h4>Scoreboard</h4>
-            <div class="history"></div>
+            <div class="scoreboard">
+            <h4 data-state="hidden">Scoreboard</h4>
+            <div id="game-history"></div>
+            </div>
         </section>
         <footer>
-            <button class="scoreboard-button">View Scoreboard</button>
+            <button id="scoreboard-button">View Scoreboard</button>
         </footer>
     </main>
     <script src="./assets/js/script.js"></script>

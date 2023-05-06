@@ -25,11 +25,17 @@ main {
 	width: 100%;
 	color: #000000;
 }
+.quiz {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	width: 100%
+}
 
 /* Sets styling for the start button */
-.start-button,
+#start-button,
 .answer-button,
-.submit-button {
+#submit-button {
     border: 2px solid #000000;
     background-color: #ffffff;
     color: #000000;
@@ -37,9 +43,9 @@ main {
 }
 
 /* Sets hover effect for buttons */
-.start-button:hover,
-.scoreboard-button:hover,
-.submit-button:hover {
+#start-button:hover,
+#scoreboard-button:hover,
+#submit-button:hover {
     cursor: grab;
 	background-color:darkslateblue;
 	color: #ffffff;
@@ -62,7 +68,7 @@ footer {
 }
 
 /* Sets styling for the scoreboard button */
-.scoreboard-button {
+#scoreboard-button {
     border: 2px solid #ffffff;
     background-color: #000000;
     color: #ffffff;

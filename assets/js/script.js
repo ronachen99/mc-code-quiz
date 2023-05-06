@@ -26,3 +26,12 @@ function startQuiz() {
 
 // Function that renders the scores and the name on the scoreboard from the local storage
 
+
+
+
+var state = questions.getAttribute("data-state");
+
+if (state === "hidden") {
+    
+}
+
