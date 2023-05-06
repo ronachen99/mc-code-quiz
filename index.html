@@ -11,8 +11,9 @@
 
 <body>
     <header>
-        <div>Time: <span class="timer-count" >75</span></div>
-        <div>Score: <span class="timer-count" >0</span></div>
+        <div>Time: <span class="timer-count">50</span></div>
+        <h1>Code Quiz</h1>
+        <div>Score: <span class="score-count">0</span></div>
     </header>
 
     <main>
@@ -21,30 +22,60 @@
         </section>
 
         <section>
-
-        </section>
-
-        <section>
-            <div class="results">
-                <div class="name-input"></div>
-                <button class="submit"></button>
+            <div class="quiz">
+                <h2 id="question">JavaScript is a high-level programming language that provides _____ and interactivity for webpages.</h2>
+                <button id="answer-button">logic</button>
+                <button id="answer-button">structure</button>
+                <button id="answer-button">coffee</button>
+                <button id="answer-button">styling</button>
+                <!-- logic -->
+            </div>
+            <div class="quiz2">
+                <h2 id="question">True or False? JavaScript is case sensitive.</h2>
+                <button id="answer-button">True</button>
+                <button id="answer-button">False</button>
+                <!-- true -->
+            </div>
+            <div class="quiz3">
+                <h2 id="question">JavaScript executes code from ______________ unless interrupted by conditional statements, loops, or function calls.</h2>
+                <button id="answer-button">bottom to top</button>
+                <button id="answer-button">left to right</button>
+                <button id="answer-button">top to bottom</button> 
+                <button id="answer-button">right to left</button>
+                <!-- top to bottom -->
+            </div>
+            <div class="quiz4">
+                <h2 id="question">Null represents the ________ of an object.</h2>
+                <button id="answer-button">absence</button>
+                <button id="answer-button">undefined</button>
+                <button id="answer-button">presence</button>
+                <button id="answer-button">string</button>
+                <!-- absence -->
+            </div>
+            <div class="quiz5">
+                <h2 id="question">Which of the following is not a JavaScript data type?</h2>
+                <button id="answer-button">number</button>
+                <button id="answer-button">boolean</button>
+                <button id="answer-button">symbol</button>
+                <button id="answer-button">concat</button>
+                <!-- concat -->
             </div>
         </section>
 
         <section>
-            <div class="highscore">
-                <div class="score"></div>
-                <div class="back"></div>
-                <div class="clear"></div>
+            <div class="form">
+                <h3>Great Job! Your score is <span class="score-count">0</span></h3>
+                <div class="input">
+                    <label for="first-name">Enter Your Name: </label>
+                    <input type="text" name="first-name" id="first-name"/>
+                <button class="submit-button">Submit</button>         
             </div>
         </section>
-
         <footer>
             <button class="scoreboard-button">View Scoreboard</button>
         </footer>
     </main>
     <script src="./assets/js/script.js"></script>
-    
 
 </body>
 

@@ -1,3 +1,4 @@
+/* Sets layout and font family */
 body {
 	margin: 0;
 	padding: 0;
@@ -5,15 +6,17 @@ body {
 	font-family: 'Courier New', Courier, monospace, sans-serif;
 }
 
+/* Sets styling for header */
 header {
 	background-color: #000000;
 	color: #ffffff;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	width:100%;
     padding: 20px;
 }
 
+/* Sets styling for main section */
 main {
 	display: flex;
 	justify-content: center;
@@ -22,9 +25,34 @@ main {
     flex-direction: column;
 	width: 100%;
 	color: #000000;
-    padding: 20px;
 }
 
+/* Sets styling for the start button */
+.start-button,
+#answer-button,
+.submit-button {
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+
+/* Sets hover effect for buttons */
+.start-button:hover,
+.scoreboard-button:hover,
+.submit-button:hover {
+    cursor: grab;
+	background-color:darkslateblue;
+	color: #ffffff;
+}
+
+#answer-button:hover {
+	cursor: pointer;
+	background-color: darkslateblue;
+	color: #ffffff;
+}
+
+/* Sets styling for footer */
 footer {
 	background-color: #000000;
 	color: #ffffff;
@@ -34,20 +62,14 @@ footer {
     padding: 20px;
 }
 
-.start-button {
-    border: 2px solid #000000;
-    background-color: #ffffff;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
-}
+/* Sets styling for the scoreboard button */
 .scoreboard-button {
     border: 2px solid #ffffff;
     background-color: #000000;
     color: #ffffff;
     font-family: 'Courier New', Courier, monospace, sans-serif;
 }
-.start-button:hover,
-.scoreboard-button:hover {
-    cursor: grab;
-}
 
+section {
+	padding: 5%;
+}
