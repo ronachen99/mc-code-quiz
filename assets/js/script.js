@@ -1,7 +1,6 @@
 var questions = [
   {
-    question:
-      "JavaScript is a high-level programming language that provides _____ and interactivity for webpages.",
+    question: "JavaScript is a high-level programming language that provides _____ and interactivity for webpages.",
     answer: [
       { text: "logic", correct: true },
       { text: "structure", correct: false },
@@ -19,8 +18,7 @@ var questions = [
     ],
   },
   {
-    question:
-      "JavaScript executes code from ______________ unless interrupted by conditional statements, loops, or function calls.",
+    question:"JavaScript executes code from ______________ unless interrupted by conditional statements, loops, or function calls.",
     answer: [
       { text: "bottom to top", correct: false },
       { text: "left to right", correct: false },
@@ -74,11 +72,12 @@ startButton.addEventListener("click", startQuiz);
 
 // Hide the start button when the quiz starts, start timer, and display questions
 function startQuiz() {
-  startButton.style.visibility = "hidden";
-  quizContainer.setAttribute("style", "display: flex");
-  startTimer();
-  displayQuestion();
+    startButton.style.visibility = "hidden";
+    quizContainer.classList.remove("hide");
+     startTimer();
+     displayQuestion();
 }
+
 
 // Start the timer
 function startTimer() {
@@ -86,34 +85,40 @@ function startTimer() {
   var timer = setInterval(function () {
     timerCount--;
     timerEl.textContent = timerCount;
+    // Test if win condition is met
+    if (quizDone && timerCount > 0) {
+        // timerCount.textContent = score;
+        // localStorage.setItem("score", score);
+        clearInterval(timer);
+        // showForm();
+    }
 
-    // // Test if win conditiuon is met
-    // if (quizDone && timerCount > 0) {
-    //     timerCount.textContent = score;
-    //     localStorage.setItem("score", score);
-    //     clearInterval(timer);
-    //     showForm();
-    // }
-
-    // if (timerCount === 0) {
-    //     timerCount.textContent = score;
-    //     localStorage.setItem("score", score);
-    //     clearInterval(timer);
-    //     showForm();
-    // }
+    if (timerCount === 0) {
+        // timerCount.textContent = score;
+        // localStorage.setItem("score", score);
+        clearInterval(timer);
+        // showForm();
+    }
   }, 1000);
 }
 
-// Display questions and answers
-function displayQuestion() {
-    var currentQuestion = questions[x];
- for (var x = 0; questions.length < 0; x++ ) {
-
-    questionEl.innerHTML = currentQuestion.question;
-    currentQuestion.a.forEach((a) => {
-    var choiceButton = document.createElement("button");
-    choiceButton.innerHTML = answer.choice;
-    answerButton.appendChild(choiceButton);
-})}
+function nextQuestion () {
 
 }
+
+function displayQuestion () {
+
+
+}
+
+
+//     var currentQuestion = questions[x];
+// {
+//     questionEl.innerHTML = currentQuestion.question;
+//     currentQuestion.a.forEach((a) => {
+//     var choiceButton = document.createElement("button");
+//     choiceButton.innerHTML = answer.choice;
+//     answerButton.appendChild(choiceButton);
+// })}
+
+// }
