@@ -1,4 +1,9 @@
-}
+// Show form
+function showForm() {
+    quizContainer.setAttribute("style", "display: none");
+    formContainer.setAttribute("style", "display: flex");
+    score = localStorage.getItem("score");
+ }
 
 // Check answer selected
 function checkAnswer(event) 
