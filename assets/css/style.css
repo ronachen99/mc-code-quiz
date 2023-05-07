@@ -48,7 +48,7 @@ main {
 	
 }
 
-.answer-button button {
+.answer-buttons button {
 	width:80%;
 	padding: 10px;
 	margin: 5px 0;
@@ -57,7 +57,7 @@ main {
 
 /* Sets styling for the start button */
 .start-button,
-.answer-button button ,
+.answer-buttons button ,
 .submit-button,
 .return-button,
 .reset-button {
@@ -78,7 +78,7 @@ main {
 	color: #ffffff;
 }
 
-.answer-button button:hover {
+.answer-buttons button:hover {
 	cursor: pointer;
 	background-color: darkslateblue;
 	color: #ffffff;

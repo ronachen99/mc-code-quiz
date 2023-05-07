@@ -50,3 +50,15 @@ function nextQuestion(){
 //TODO make showscore fx
 //TODO make quizdone
 //TODO fail quiz
+
+
+//     var currentQuestion = questions[x];
+// {
+//     questionEl.innerHTML = currentQuestion.question;
+//     currentQuestion.a.forEach((a) => {
+//     var choiceButton = document.createElement("button");
+//     choiceButton.innerHTML = answer.choice;
+//     answerButton.appendChild(choiceButton);
+// })}
+
+// }
