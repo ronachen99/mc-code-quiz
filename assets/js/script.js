@@ -1,3 +1,4 @@
+// Question arrays
 var questions = [
   {
     question:
@@ -28,7 +29,7 @@ var questions = [
   },
 ];
 
-// Containers
+// Containers for each section
 var startContainer = document.querySelector(".start-container");
 var quizContainer = document.querySelector(".quiz-container");
 var formContainer = document.querySelector(".form-container");
@@ -46,14 +47,17 @@ var resetButton = document.querySelector(".reset-button");
 var timerEl = document.querySelector(".timer-count");
 var scoreEl = document.querySelector(".score-count");
 
-// Others
-var firstNameInput = document.querySelector("#first-name");
-var questionEl = document.querySelector(".question");
-var scoreListEl = document.querySelector(".score-list");
+// Declare variables with no value
 var currentQuestionIndex;
 var quizDone;
 var timerCount;
 
+//  Other variables
+var firstNameInput = document.querySelector("#first-name");
+var questionEl = document.querySelector(".question");
+var scoreListEl = document.querySelector(".score-list");
+
+// The following function sets the page to its initial conditions
 function init() {
   startButton.classList.remove("hide");
   quizContainer.classList.add("hide");
@@ -63,27 +67,33 @@ function init() {
   quizContainer.setAttribute("style", "background-color: white");
 }
 
-// Start the quiz when start button is pressed
+// The following event allows the start button to call the startQuiz function on click
 startButton.addEventListener("click", startQuiz);
 
-
-// Hide the start button when the quiz starts, start timer, and display questions
+// The following function starts the quiz
 function startQuiz() {
-  startButton.classList.add("hide");
-  quizContainer.classList.remove("hide");
+  // Hide the unnecessary components of the page when quiz starts
   scoreboardButton.style.visibility = "hidden";
+  startButton.classList.add("hide");
+  // Show the quiz container
+  quizContainer.classList.remove("hide");
+  // Set values to current question index and start time
   currentQuestionIndex = 0
   timerCount = 50
   quizDone = false
+  // Calls the startTimer function and displayQustion function
   startTimer();
   displayQuestion();
 }
 
-// Start the timer
+// The following function starts the timer
 function startTimer() {
   var timer = setInterval(function () {
+    // Timer is counting down by 1 second
     timerCount--;
+    // Show the count down in the timer element
     timerEl.textContent = timerCount;
+    // When the quiz is done or time's up, call showForm function and clear the timer
     if (timerCount <= 0 || quizDone) {
       showForm();
       clearInterval(timer);
@@ -91,79 +101,91 @@ function startTimer() {
   }, 1000);
 }
 
+// The following function display the questions
 function displayQuestion() {
-  // Displays the current question inside the questions array
   var currentQuestion = questions[currentQuestionIndex].question;
   var currentOptions = questions[currentQuestionIndex].options;
   questionEl.innerHTML = currentQuestion;
-  //what do we really want to empty out,
+  // Empty out the previous answer buttons
   answerButton.innerHTML = ""
-  // Create buttons for each option inside the options array// Found this in a video, the (forEach) 
+  // Create buttons for each option inside the options array
   currentOptions.forEach(option => {
     var answerEl = document.createElement("button");
     answerEl.innerHTML = option;
     answerButton.appendChild(answerEl);
+    // Call the compareAnswers function on click
     answerEl.addEventListener("click", compareAnswers);
   })
 }
 
-// Compares event and answer
+// The following function checks for the correct answer
 function compareAnswers(event) {
+  // This is referring to the button that the user clicked
   var selectedAnswer = event.target;
+  // Compares the selected answer and the real answer and the quiz container will change color accordingly
   if (questions[currentQuestionIndex].answer === selectedAnswer.innerText) {
     quizContainer.setAttribute("style", "background-color: lightgreen");
   } else {
     quizContainer.setAttribute("style", "background-color: lightpink");
+    // If incorrect, a penalty of 10s is taken away from the timer
     timerCount -= 10;
   }
-  checkIfNextQuestion()  
+  // Once answer is checked, we check if we have more questions
+  checkIfNextQuestion();
 }
 
-function checkIfNextQuestion(){
-  if (currentQuestionIndex == questions.length -1) {
+// The following function will check whether there is more questions and if the quiz should continue
+function checkIfNextQuestion() {
+  // When the quiz length-1 (i.e., 4) = the currentQuestionIndex (i.e., 4), then end quiz
+  if (currentQuestionIndex == questions.length - 1) {
     quizDone = true
     return
-  } 
-    currentQuestionIndex++;
-    displayQuestion();
+  }
+  // Else, increase the currentQuestionIndex by 1 and call displayQuestion function again
+  currentQuestionIndex++;
+  displayQuestion();
 }
 
-// Function that stores the score and the name to the local storage: After all the questions are done, we see the score and the submit form 
+// The following function will show the submit form
 function showForm() {
   quizContainer.classList.add("hide");
   formContainer.classList.remove("hide");
+  // Sets the ended time as the score
   var score = timerCount
   scoreEl.textContent = score;
+  // Calls the submitForm function
   submitForm();
 }
 
+// The following form stores the inputted value for name and the score on click
 function submitForm() {
   submitButton.addEventListener("click", function () {
     var userScore = {
       name: firstNameInput.value,
       score: timerCount
     };
-
+    // It renders the current scoreboard and push the most recent score, and updates the scoreboard
     var scoreBoard = JSON.parse(localStorage.getItem("scoreBoard")) || [];
     scoreBoard.push(userScore);
     var updatedScore = JSON.stringify(scoreBoard);
-    localStorage.setItem("scoreBoard", updatedScore)
-    renderScore()
+    localStorage.setItem("scoreBoard", updatedScore);
+    // Calls the renderScore option
+    renderScore();
   })
 }
-// Function that renders the scores and the name on the scoreboard from the local storage: After we submit, we the see the past scores
+// The following function renders the stored scores in the scoreboard container
 function renderScore() {
+  // Hides start button when accessed from the init page
   formContainer.classList.add("hide");
   startButton.classList.add("hide");
-  // On the scoreboard, we see reset and return button
   scoreboardContainer.classList.remove("hide");
   updatedScore = JSON.parse(localStorage.getItem("scoreBoard"));
   scoreListEl.innerHTML = ""
   if (updatedScore == null) {
-    scoreListEl.innerHTML = "You don't have any highscores!"
+    scoreListEl.innerHTML = "You don't have any scores yet!"
     return
   }
-  
+ // Make a list for all the stored scores 
   for (x = 0; x < updatedScore.length; x++) {
     var scoreList = document.createElement("li");
     scoreList.textContent = updatedScore[x].name + ": " + updatedScore[x].score;
@@ -171,7 +193,8 @@ function renderScore() {
   }
 }
 
-// When the reset button is pressed, it clears local storage
+
+// When the reset button is pressed, it removes all the stored scores from the local storge
 resetButton.addEventListener("click", function () {
   localStorage.removeItem("scoreBoard")
   renderScore();
@@ -180,5 +203,5 @@ resetButton.addEventListener("click", function () {
 // When the return button is pressed, it goes back to the start button screen
 returnButton.addEventListener("click", init);
 
-// When the scoreboard button is pressed, it shows the highscores
+// When the scoreboard button is pressed, it renders the scoreboard
 scoreboardButton.addEventListener("click", renderScore)
