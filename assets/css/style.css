@@ -24,6 +24,13 @@ header {
 	height: fit-content;
 }
 
+.score-list{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
 /* Sets styling for main section */
 main {
 	display: flex;
