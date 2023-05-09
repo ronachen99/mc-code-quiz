@@ -1,4 +1,4 @@
-/* Sets layout and font family */
+/* Sets layout and font family for the body element */
 body {
 	margin: 0;
 	padding: 0;
@@ -6,7 +6,7 @@ body {
 	font-family: 'Courier New', Courier, monospace, sans-serif;
 }
 
-/* Sets styling for header */
+/* Sets styling for header for the header element */
 header {
 	background-color: #000000;
 	color: #ffffff;
@@ -24,14 +24,16 @@ header {
 	height: fit-content;
 }
 
+/* Sets the layout for the scoreboard list */
 .score-list{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	align-items: center;
 }
 
-/* Sets styling for main section */
+/* Sets the layout and styling for main element */
 main {
 	display: flex;
 	justify-content: center;
@@ -42,6 +44,7 @@ main {
 	color: #000000;
 }
 
+/* Sets the layout for the quiz container */
 .quiz-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -55,6 +58,7 @@ main {
 	
 }
 
+/* Sets layout for the answer button */
 .answer-buttons button {
 	width:80%;
 	padding: 10px;
@@ -62,7 +66,7 @@ main {
 	text-align: center;
 }
 
-/* Sets styling for the start button */
+/* Adds font styling and border for all the buttons */
 .start-button,
 .answer-buttons button ,
 .submit-button,
@@ -74,7 +78,7 @@ main {
     font-family: 'Courier New', Courier, monospace, sans-serif;
 }
 
-/* Sets hover effect for buttons */
+/* Sets hover effect for all the buttons (except answer button) */
 .start-button:hover,
 .scoreboard-button:hover,
 .submit-button:hover,
@@ -85,16 +89,19 @@ main {
 	color: #ffffff;
 }
 
+/* Sets hover effect for the answer buttons */
 .answer-buttons button:hover {
 	cursor: pointer;
 	background-color: darkslateblue;
 	color: #ffffff;
 }
 
+/* Sets margin for each section (i.e., for the different containers) */
 section {
 	margin: 2%;
 }
 
+/* Hide elements with the class "hide" */
 .hide {
 	display: none;
 }
