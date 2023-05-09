@@ -56,6 +56,7 @@ var timerCount;
 var firstNameInput = document.querySelector("#first-name");
 var questionEl = document.querySelector(".question");
 var scoreListEl = document.querySelector(".score-list");
+var setButton = false;
 
 // The following function sets the page to its initial conditions
 function init() {
@@ -65,6 +66,7 @@ function init() {
   formContainer.classList.add("hide");
   scoreboardButton.style.visibility = "visible";
   quizContainer.setAttribute("style", "background-color: white");
+  timerEl.textContent = 50;
 }
 
 // The following event allows the start button to call the startQuiz function on click
@@ -81,7 +83,6 @@ function startQuiz() {
   currentQuestionIndex = 0
   timerCount = 50
   quizDone = false
-  // Calls the startTimer function and displayQustion function
   startTimer();
   displayQuestion();
 }
@@ -153,12 +154,15 @@ function showForm() {
   // Sets the ended time as the score
   var score = timerCount
   scoreEl.textContent = score;
-  // Calls the submitForm function
-  submitForm();
+  // Adds event listener if one isn't created for the submit button
+  if (setButton == false) {
+    saveScore();
+    setButton = true;
+  }
 }
 
 // The following form stores the inputted value for name and the score on click
-function submitForm() {
+function saveScore() {
   submitButton.addEventListener("click", function () {
     var userScore = {
       name: firstNameInput.value,
@@ -169,30 +173,30 @@ function submitForm() {
     scoreBoard.push(userScore);
     var updatedScore = JSON.stringify(scoreBoard);
     localStorage.setItem("scoreBoard", updatedScore);
-    // Calls the renderScore option
     renderScore();
   })
 }
+
 // The following function renders the stored scores in the scoreboard container
 function renderScore() {
   // Hides start button when accessed from the init page
   formContainer.classList.add("hide");
   startButton.classList.add("hide");
   scoreboardContainer.classList.remove("hide");
+  // Retrieve stored scores from the local storage
   updatedScore = JSON.parse(localStorage.getItem("scoreBoard"));
   scoreListEl.innerHTML = ""
   if (updatedScore == null) {
     scoreListEl.innerHTML = "You don't have any scores yet!"
     return
   }
- // Make a list for all the stored scores 
+  // Make a list for all the stored scores 
   for (x = 0; x < updatedScore.length; x++) {
     var scoreList = document.createElement("li");
     scoreList.textContent = updatedScore[x].name + ": " + updatedScore[x].score;
     scoreListEl.append(scoreList);
   }
 }
-
 
 // When the reset button is pressed, it removes all the stored scores from the local storge
 resetButton.addEventListener("click", function () {
@@ -204,4 +208,4 @@ resetButton.addEventListener("click", function () {
 returnButton.addEventListener("click", init);
 
 // When the scoreboard button is pressed, it renders the scoreboard
-scoreboardButton.addEventListener("click", renderScore)
+scoreboardButton.addEventListener("click", renderScore);
