@@ -44,7 +44,7 @@ main {
 	color: #000000;
 }
 
-
+/* Sets the layout for the start container */
 .start-container {
 	width: 50%;
 	justify-content: center;
@@ -63,7 +63,6 @@ main {
 	padding: 20px;
 	width: 70%;
 	border: 2px solid #000000;
-
 }
 
 /* Sets layout for the answer button */
