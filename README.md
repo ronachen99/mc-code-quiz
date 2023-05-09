@@ -19,7 +19,7 @@ The purpose of creating this repository is to build a website that enables peopl
 ## Demonstration
 
 Here is a short demonstration for the website:
-[Demonstration of a user going through an interactive coding quiz, then enters name to save score before returning, resetting, and starting over](./assets/images/MC%20Code%20Quiz.gif)
+![Demonstration of a user going through an interactive coding quiz, then enters name to save score before returning, resetting, and starting over](./assets/images/MC%20Code%20Quiz.gif)
 
 <br>
 
