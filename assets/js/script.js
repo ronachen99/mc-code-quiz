@@ -60,7 +60,7 @@ var setButton = false;
 
 // The following function sets the page to its initial conditions
 function init() {
-  startButton.classList.remove("hide");
+  startContainer.classList.remove("hide");
   quizContainer.classList.add("hide");
   scoreboardContainer.classList.add("hide");
   formContainer.classList.add("hide");
@@ -76,7 +76,7 @@ startButton.addEventListener("click", startQuiz);
 function startQuiz() {
   // Hide the unnecessary components of the page when quiz starts
   scoreboardButton.style.visibility = "hidden";
-  startButton.classList.add("hide");
+  startContainer.classList.add("hide");
   // Show the quiz container
   quizContainer.classList.remove("hide");
   // Set values to current question index and start time
@@ -179,9 +179,9 @@ function saveScore() {
 
 // The following function renders the stored scores in the scoreboard container
 function renderScore() {
-  // Hides start button when accessed from the init page
+  // Hides start container when accessed from the init page
   formContainer.classList.add("hide");
-  startButton.classList.add("hide");
+  startContainer.classList.add("hide");
   scoreboardContainer.classList.remove("hide");
   // Retrieve stored scores from the local storage
   updatedScore = JSON.parse(localStorage.getItem("scoreBoard"));
@@ -204,7 +204,7 @@ resetButton.addEventListener("click", function () {
   renderScore();
 });
 
-// When the return button is pressed, it goes back to the start button screen
+// When the return button is pressed, it goes back to the landing page
 returnButton.addEventListener("click", init);
 
 // When the scoreboard button is pressed, it renders the scoreboard

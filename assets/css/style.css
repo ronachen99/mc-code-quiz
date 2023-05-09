@@ -12,20 +12,20 @@ header {
 	color: #ffffff;
 	display: flex;
 	justify-content: space-around;
-	width:100%;
+	width: 100%;
 }
 
 /* Sets styling for the scoreboard button */
 .scoreboard-button {
-    border: 1px solid #ffffff;
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
+	border: 1px solid #ffffff;
+	background-color: #000000;
+	color: #ffffff;
+	font-family: 'Courier New', Courier, monospace, sans-serif;
 	height: fit-content;
 }
 
 /* Sets the layout for the scoreboard list */
-.score-list{
+.score-list {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -37,11 +37,19 @@ header {
 main {
 	display: flex;
 	justify-content: center;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
+	text-align: center;
+	align-items: center;
+	flex-direction: column;
 	width: 100%;
 	color: #000000;
+}
+
+
+.start-container {
+	width: 50%;
+	justify-content: center;
+	text-align: center;
+	line-height: 2.0;
 }
 
 /* Sets the layout for the quiz container */
@@ -53,14 +61,14 @@ main {
 	text-align: center;
 	justify-content: center;
 	padding: 20px;
-	width:70%;
+	width: 70%;
 	border: 2px solid #000000;
-	
+
 }
 
 /* Sets layout for the answer button */
 .answer-buttons button {
-	width:80%;
+	width: 80%;
 	padding: 10px;
 	margin: 5px 0;
 	text-align: center;
@@ -68,14 +76,14 @@ main {
 
 /* Adds font styling and border for all the buttons */
 .start-button,
-.answer-buttons button ,
+.answer-buttons button,
 .submit-button,
 .return-button,
 .reset-button {
-    border: 2px solid #000000;
-    background-color: #ffffff;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
+	border: 2px solid #000000;
+	background-color: #ffffff;
+	color: #000000;
+	font-family: 'Courier New', Courier, monospace, sans-serif;
 }
 
 /* Sets hover effect for all the buttons (except answer button) */
@@ -84,8 +92,8 @@ main {
 .submit-button:hover,
 .return-button:hover,
 .reset-button:hover {
-    cursor: grab;
-	background-color:darkslateblue;
+	cursor: grab;
+	background-color: darkslateblue;
 	color: #ffffff;
 }
 
