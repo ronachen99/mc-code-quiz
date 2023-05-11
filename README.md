@@ -31,7 +31,7 @@ https://ronachen99.github.io/mc-code-quiz/
 
 ## Installation
 
-There is no installation requirements.
+No installation prerequisites are necessary.
 
 <br>
 
